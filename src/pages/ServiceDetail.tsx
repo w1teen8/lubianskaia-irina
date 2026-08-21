@@ -95,7 +95,7 @@ export default function ServiceDetail() {
             <ul className="space-y-4">
               {service.whatIncluded.map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <Check size={16} className="text-ink mt-1 shrink-0" />
+                  <Check size={16} className="text-gold mt-1 shrink-0" />
                   <span className="text-taupe font-light">{item}</span>
                 </li>
               ))}
@@ -115,7 +115,7 @@ export default function ServiceDetail() {
               <ol className="space-y-4">
                 {service.process.map((step, i) => (
                   <li key={step} className="flex items-start gap-4">
-                    <span className="font-serif text-lg text-taupe shrink-0">
+                    <span className="font-serif text-lg text-gold shrink-0">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span className="text-taupe font-light">{step}</span>
@@ -147,7 +147,7 @@ export default function ServiceDetail() {
                       <span className="font-serif text-lg text-ink">{item.q}</span>
                       <ChevronDown
                         size={16}
-                        className={`text-ink shrink-0 transition-transform duration-300 ${
+                        className={`text-gold shrink-0 transition-transform duration-300 ${
                           isOpen ? "rotate-180" : ""
                         }`}
                       />

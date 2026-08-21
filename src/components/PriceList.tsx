@@ -10,7 +10,9 @@ export default function PriceList() {
     <section className="bg-ivory border-t border-ink/8">
       <div className="max-w-3xl mx-auto px-6 sm:px-10 py-24 sm:py-32">
         <Reveal className="text-center mb-16">
-          <div className="h-px w-12 bg-ink mb-8 mx-auto" />
+          <p className="text-[11px] uppercase tracking-[0.25em] text-gold mb-5">
+            Ціни
+          </p>
           <h2 className="font-serif text-4xl sm:text-5xl text-ink mb-5">Ціни</h2>
           <p className="text-taupe font-light">
             Оберіть категорію, щоб переглянути повний перелік послуг та вартість.
@@ -33,7 +35,7 @@ export default function PriceList() {
                     </span>
                     <ChevronDown
                       size={18}
-                      className={`text-ink transition-transform duration-300 ${
+                      className={`text-gold transition-transform duration-300 ${
                         isOpen ? "rotate-180" : ""
                       }`}
                     />

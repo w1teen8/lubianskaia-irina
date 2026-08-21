@@ -95,7 +95,7 @@ export default function BookingModal() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 12, scale: 0.98 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="relative bg-paper w-full max-w-lg max-h-[90vh] overflow-y-auto p-8 sm:p-12"
+            className="relative bg-paper rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto p-8 sm:p-12"
             role="dialog"
             aria-modal="true"
           >
@@ -115,7 +115,7 @@ export default function BookingModal() {
                 className="text-center py-10"
               >
                 <div className="w-14 h-14 rounded-full bg-beige/40 flex items-center justify-center mx-auto mb-6">
-                  <Check className="text-ink" size={26} />
+                  <Check className="text-gold" size={26} />
                 </div>
                 <h3 className="font-serif text-3xl text-ink mb-3">Дякуємо!</h3>
                 <p className="text-taupe font-light">
@@ -125,7 +125,7 @@ export default function BookingModal() {
               </motion.div>
             ) : (
               <>
-                <p className="text-[11px] uppercase tracking-[0.25em] text-taupe mb-3">
+                <p className="text-[11px] uppercase tracking-[0.25em] text-gold mb-3">
                   Запис
                 </p>
                 <h3 className="font-serif text-3xl sm:text-4xl text-ink mb-8">
@@ -194,7 +194,7 @@ export default function BookingModal() {
 
                   <button
                     type="submit"
-                    className="w-full bg-ink text-ivory py-4 text-[12px] uppercase tracking-[0.2em] hover:bg-taupe transition-colors duration-300 mt-2"
+                    className="w-full bg-gold text-ivory rounded-full py-4 text-[12px] uppercase tracking-[0.2em] hover:bg-ink transition-colors duration-300 mt-2"
                   >
                     Надіслати заявку
                   </button>
