@@ -5,7 +5,10 @@ import Cta from "../components/Cta";
 import { unsplash, IMG } from "../lib/images";
 import { ADVANTAGES } from "../lib/data";
 
-const ICONS: Record<string, React.ComponentType<{ size?: number; strokeWidth?: number }>> = {
+const ICONS: Record<
+  string,
+  React.ComponentType<{ size?: number; strokeWidth?: number; className?: string }>
+> = {
   certificate: Award,
   device: Shield,
   sparkle: Sparkles,
@@ -62,7 +65,9 @@ export default function About() {
       <section className="bg-paper border-t border-ink/8">
         <div className="max-w-[1400px] mx-auto px-6 sm:px-10 py-24 sm:py-32">
           <Reveal className="mb-16 text-center">
-            <div className="h-px w-12 bg-ink mb-8 mx-auto" />
+            <p className="text-[11px] uppercase tracking-[0.25em] text-gold mb-5">
+              Чому обирають мене
+            </p>
             <h2 className="font-serif text-4xl sm:text-5xl text-ink">
               Чому обирають мене
             </h2>
@@ -73,7 +78,7 @@ export default function About() {
               const Icon = ICONS[adv.icon];
               return (
                 <Reveal key={adv.title} delay={(i % 3) * 0.1}>
-                  <Icon size={26} strokeWidth={1.25} />
+                  <Icon size={26} strokeWidth={1.25} className="text-gold" />
                   <h3 className="font-serif text-xl text-ink mt-5 mb-2">
                     {adv.title}
                   </h3>
