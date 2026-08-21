@@ -13,8 +13,8 @@ html {
 }
 
 body {
-  background: #f7f5f1;
-  color: #111111;
+  background: #f5f1ea;
+  color: #18140f;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -25,9 +25,13 @@ body {
   font-family: 'Playfair Display', Georgia, serif;
 }
 
+.vertical-rl {
+  writing-mode: vertical-rl;
+}
+
 ::selection {
-  background: #111111;
-  color: #f7f5f1;
+  background: #18140f;
+  color: #f5f1ea;
 }
 
 .no-scrollbar::-webkit-scrollbar {

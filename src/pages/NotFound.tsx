@@ -10,7 +10,7 @@ export default function NotFound() {
         </p>
         <Link
           to="/"
-          className="inline-flex items-center border border-ink/20 px-8 py-3.5 text-[12px] uppercase tracking-[0.2em] text-ink hover:border-ink transition-colors duration-300"
+          className="inline-flex items-center border border-ink/20 rounded-full px-8 py-3.5 text-[12px] uppercase tracking-[0.2em] text-ink hover:border-gold hover:text-gold transition-colors duration-300"
         >
           На головну
         </Link>

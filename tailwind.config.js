@@ -4,11 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        ivory: '#F7F5F1',
+        ivory: '#F5F1EA',
         paper: '#FFFFFF',
-        ink: '#111111',
-        beige: '#D8CBBE',
-        taupe: '#8D867E',
+        ink: '#18140F',
+        beige: '#E4D9C8',
+        taupe: '#8A8178',
+        gold: '#B08F63',
       },
       fontFamily: {
         serif: ['"Playfair Display"', 'Georgia', 'serif'],

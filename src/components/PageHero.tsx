@@ -18,7 +18,7 @@ export default function PageHero({
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-[11px] uppercase tracking-[0.25em] text-taupe mb-5"
+            className="text-[11px] uppercase tracking-[0.25em] text-gold mb-5"
           >
             {eyebrow}
           </motion.p>

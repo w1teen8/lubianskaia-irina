@@ -11,7 +11,7 @@ export default function Services() {
         title="Ритуали для вашої природної краси"
         subtitle="Епіляція, депіляція, шугаринг, ламінування вій та догляд за бровами — з увагою до кожної деталі."
       />
-      <ServicesGrid showCta={false} />
+      <ServicesGrid showCta={false} hideHeader />
       <PriceList />
       <Cta />
     </>

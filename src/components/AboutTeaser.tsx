@@ -5,9 +5,9 @@ import { unsplash, IMG } from "../lib/images";
 export default function AboutTeaser() {
   return (
     <section className="bg-ivory">
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 py-24 sm:py-32 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 py-24 sm:py-32 grid lg:grid-cols-[1fr_1.1fr_0.6fr] gap-10 lg:gap-14 items-center">
         <Reveal>
-          <div className="aspect-[4/5] overflow-hidden max-w-md">
+          <div className="aspect-[4/5] overflow-hidden rounded-[1.5rem]">
             <img
               src={unsplash(IMG.aboutPortrait, 800, 1000)}
               alt="Ірина Люб'янська"
@@ -18,7 +18,9 @@ export default function AboutTeaser() {
 
         <div>
           <Reveal>
-            <div className="h-px w-12 bg-ink mb-8" />
+            <p className="text-[11px] uppercase tracking-[0.25em] text-gold mb-3">
+              Про мене
+            </p>
             <h2 className="font-serif text-4xl sm:text-5xl text-ink mb-7">
               Про мене
             </h2>
@@ -32,10 +34,10 @@ export default function AboutTeaser() {
               відчуттям справжнього спокою.
             </p>
           </Reveal>
-          <Reveal delay={0.2}>
+          <Reveal delay={0.2} className="flex items-center gap-8 flex-wrap">
             <Link
               to="/about"
-              className="inline-flex items-center border border-ink/20 px-8 py-3.5 text-[12px] uppercase tracking-[0.2em] text-ink hover:border-ink transition-colors duration-300 mb-10"
+              className="inline-flex items-center bg-ink text-ivory rounded-full px-8 py-3.5 text-[12px] uppercase tracking-[0.2em] hover:bg-gold transition-colors duration-300"
             >
               Дізнатися більше
             </Link>
@@ -44,6 +46,19 @@ export default function AboutTeaser() {
             </p>
           </Reveal>
         </div>
+
+        <Reveal delay={0.15} className="hidden lg:flex flex-col items-center gap-6">
+          <p className="vertical-rl text-[10px] uppercase tracking-[0.3em] text-taupe">
+            Краса — це гармонія
+          </p>
+          <div className="aspect-[3/4] w-full max-w-[140px] overflow-hidden rounded-xl">
+            <img
+              src={unsplash(IMG.spaStones, 300, 400)}
+              alt=""
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </Reveal>
       </div>
     </section>
   );

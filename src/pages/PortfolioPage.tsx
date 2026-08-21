@@ -10,7 +10,7 @@ export default function PortfolioPage() {
         title="Результати, якими пишаємось"
         subtitle="Робота з кожною клієнткою — це історія довіри та уваги до деталей."
       />
-      <Portfolio showCta={false} />
+      <Portfolio showCta={false} variant="grid" hideHeader />
       <Cta />
     </>
   );

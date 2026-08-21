@@ -36,21 +36,23 @@ export default function Navbar() {
         )}
       >
         <nav className="max-w-[1400px] mx-auto px-6 sm:px-10 flex items-center justify-between">
-          <Link
-            to="/"
-            className="font-serif text-lg sm:text-xl tracking-wide text-ink"
-          >
-            Ірина Люб&apos;янська
+          <Link to="/" className="leading-tight">
+            <span className="block font-serif text-lg sm:text-xl tracking-wide text-ink">
+              Ірина Люб&apos;янська
+            </span>
+            <span className="block text-[10px] uppercase tracking-[0.2em] text-taupe mt-0.5">
+              Студія краси
+            </span>
           </Link>
 
-          <ul className="hidden lg:flex items-center gap-10">
+          <ul className="hidden lg:flex items-center gap-9">
             {NAV_LINKS.map((link) => (
               <li key={link.to}>
                 <NavLink
                   to={link.to}
                   className={({ isActive }) =>
                     cn(
-                      "text-[13px] uppercase tracking-[0.15em] transition-colors duration-300",
+                      "text-[14px] transition-colors duration-300",
                       isActive ? "text-ink" : "text-taupe hover:text-ink"
                     )
                   }
@@ -64,7 +66,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => open()}
-            className="hidden lg:inline-flex items-center bg-ink text-ivory rounded-none px-7 py-3 text-[12px] uppercase tracking-[0.2em] hover:bg-taupe transition-colors duration-300"
+            className="hidden lg:inline-flex items-center bg-ink text-ivory rounded-full px-7 py-3 text-[12px] uppercase tracking-[0.2em] hover:bg-gold transition-colors duration-300"
           >
             Записатися
           </button>
@@ -114,7 +116,7 @@ export default function Navbar() {
                   setMenuOpen(false);
                   open();
                 }}
-                className="mt-4 bg-ink text-ivory px-9 py-3.5 text-[12px] uppercase tracking-[0.2em]"
+                className="mt-4 bg-ink text-ivory rounded-full px-9 py-3.5 text-[12px] uppercase tracking-[0.2em]"
               >
                 Записатися
               </motion.button>

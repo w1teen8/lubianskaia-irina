@@ -10,7 +10,7 @@ export default function ReviewsPage() {
         title="Слова, що надихають"
         subtitle="Мені важлива кожна історія — дякую, що ділитесь враженнями."
       />
-      <Testimonials showCta={false} />
+      <Testimonials showCta={false} hideHeader />
       <Cta />
     </>
   );

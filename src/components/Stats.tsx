@@ -4,17 +4,11 @@ import { STATS } from "../lib/data";
 
 export default function Stats() {
   return (
-    <section className="bg-beige/40">
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 py-20 sm:py-24 flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-16">
-        <Reveal className="lg:w-64 shrink-0">
-          <h2 className="font-serif text-3xl sm:text-4xl text-ink leading-tight">
-            Чому обирають мене
-          </h2>
-        </Reveal>
-
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 flex-1">
+    <section className="bg-beige/50">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 py-14 sm:py-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 lg:divide-x divide-ink/10 text-center">
           {STATS.map((s, i) => (
-            <Reveal key={s.label} delay={0.1 + i * 0.08}>
+            <Reveal key={s.label} delay={0.1 + i * 0.08} className="py-6 lg:py-0">
               <p className="font-serif text-4xl sm:text-5xl text-ink">
                 <CountUp value={s.value} suffix={s.suffix} />
               </p>

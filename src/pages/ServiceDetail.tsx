@@ -78,7 +78,7 @@ export default function ServiceDetail() {
                 <button
                   type="button"
                   onClick={() => open(service.title)}
-                  className="inline-flex items-center bg-ink text-ivory px-9 py-4 text-[12px] uppercase tracking-[0.2em] hover:bg-taupe transition-colors duration-300"
+                  className="inline-flex items-center bg-gold text-ivory rounded-full px-9 py-4 text-[12px] uppercase tracking-[0.2em] hover:bg-ink transition-colors duration-300"
                 >
                   Записатися
                 </button>

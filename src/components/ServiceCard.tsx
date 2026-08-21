@@ -8,7 +8,7 @@ export default function ServiceCard({ service }: { service: Service }) {
   return (
     <motion.div whileHover="hover" className="group">
       <Link to={`/services/${service.slug}`} className="block">
-        <div className="relative aspect-[4/5] overflow-hidden mb-5">
+        <div className="relative aspect-[4/5] overflow-hidden mb-5 rounded-xl">
           <motion.img
             variants={{ hover: { scale: 1.06 } }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
@@ -23,13 +23,13 @@ export default function ServiceCard({ service }: { service: Service }) {
             className="absolute inset-0 bg-ink/10"
           />
         </div>
-        <h3 className="font-serif text-xl sm:text-2xl text-ink mb-2">
+        <h3 className="font-serif text-lg sm:text-xl text-ink mb-2">
           {service.title}
         </h3>
         <p className="text-taupe text-sm font-light leading-relaxed mb-3 max-w-xs">
           {service.shortDescription}
         </p>
-        <span className="inline-flex items-center gap-1.5 text-[12px] uppercase tracking-[0.15em] text-ink">
+        <span className="inline-flex items-center gap-1.5 text-[12px] uppercase tracking-[0.15em] text-gold">
           Детальніше
           <ArrowRight
             size={14}
