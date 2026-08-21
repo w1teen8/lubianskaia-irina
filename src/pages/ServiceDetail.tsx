@@ -4,7 +4,6 @@ import { ChevronDown, Check } from "lucide-react";
 import Reveal from "../components/Reveal";
 import Cta from "../components/Cta";
 import { useBooking } from "../context/BookingContext";
-import { unsplash } from "../lib/images";
 import { SERVICES } from "../lib/data";
 
 export default function ServiceDetail() {
@@ -39,7 +38,7 @@ export default function ServiceDetail() {
             <Reveal>
               <div className="aspect-[4/5] overflow-hidden">
                 <img
-                  src={unsplash(service.image, 900, 1125)}
+                  src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover"
                 />

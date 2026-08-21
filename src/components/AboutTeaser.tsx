@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Reveal from "./Reveal";
-import { unsplash, IMG } from "../lib/images";
+import { IMG } from "../lib/images";
 
 export default function AboutTeaser() {
   return (
@@ -9,7 +9,7 @@ export default function AboutTeaser() {
         <Reveal>
           <div className="aspect-[4/5] overflow-hidden rounded-[1.5rem]">
             <img
-              src={unsplash(IMG.aboutPortrait, 800, 1000)}
+              src={IMG.about}
               alt="Ірина Люб'янська"
               className="w-full h-full object-cover"
             />
@@ -22,16 +22,14 @@ export default function AboutTeaser() {
               Про мене
             </p>
             <h2 className="font-serif text-4xl sm:text-5xl text-ink mb-7">
-              Про мене
+              Привіт, я Ірина
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="text-taupe font-light leading-relaxed text-base sm:text-lg mb-9 max-w-lg">
-              Я — Ірина Люб&apos;янська, майстер краси з Боярки. Допомагаю
-              жінкам відчувати впевненість у власній шкірі через дбайливу
-              епіляцію, шугаринг та ламінування вій. Моя мета — щоб ви
-              виходили з кабінету не лише з гладенькою шкірою, а й із
-              відчуттям справжнього спокою.
+              Я — персональний стиліст та майстер краси. Моя місія —
+              допомогти вам знайти свій стиль, розкрити природну красу та
+              відчувати гармонію у кожній деталі.
             </p>
           </Reveal>
           <Reveal delay={0.2} className="flex items-center gap-8 flex-wrap">
@@ -53,7 +51,7 @@ export default function AboutTeaser() {
           </p>
           <div className="aspect-[3/4] w-full max-w-[140px] overflow-hidden rounded-xl">
             <img
-              src={unsplash(IMG.spaStones, 300, 400)}
+              src={IMG.aboutDecor}
               alt=""
               className="w-full h-full object-cover"
             />

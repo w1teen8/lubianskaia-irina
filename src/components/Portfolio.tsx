@@ -2,7 +2,6 @@ import { useState } from "react";
 import Reveal from "./Reveal";
 import SectionHeader from "./SectionHeader";
 import Lightbox from "./Lightbox";
-import { unsplash } from "../lib/images";
 import { PORTFOLIO_IMAGES } from "../lib/data";
 
 export default function Portfolio({
@@ -52,7 +51,7 @@ export default function Portfolio({
                   style={{ aspectRatio: `${img.w} / ${img.h}` }}
                 >
                   <img
-                    src={unsplash(img.image, img.w, img.h)}
+                    src={img.image}
                     alt={img.alt}
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
@@ -74,7 +73,7 @@ export default function Portfolio({
                   style={{ aspectRatio: `${img.w} / ${img.h}` }}
                 >
                   <img
-                    src={unsplash(img.image, img.w, img.h)}
+                    src={img.image}
                     alt={img.alt}
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"

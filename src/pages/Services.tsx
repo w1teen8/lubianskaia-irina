@@ -1,6 +1,5 @@
 import PageHero from "../components/PageHero";
 import ServicesGrid from "../components/ServicesGrid";
-import PriceList from "../components/PriceList";
 import Cta from "../components/Cta";
 
 export default function Services() {
@@ -8,11 +7,10 @@ export default function Services() {
     <>
       <PageHero
         eyebrow="Послуги"
-        title="Ритуали для вашої природної краси"
-        subtitle="Епіляція, депіляція, шугаринг, ламінування вій та догляд за бровами — з увагою до кожної деталі."
+        title="Створюємо ваш неповторний образ"
+        subtitle="Персональний стиль, макіяж, догляд та шопінг-супровід — з увагою до кожної деталі."
       />
       <ServicesGrid showCta={false} hideHeader />
-      <PriceList />
       <Cta />
     </>
   );

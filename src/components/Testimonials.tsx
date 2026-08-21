@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { Star } from "lucide-react";
 import Reveal from "./Reveal";
 import SectionHeader from "./SectionHeader";
-import { unsplash } from "../lib/images";
 import { REVIEWS } from "../lib/data";
 
 export default function Testimonials({
@@ -34,7 +33,7 @@ export default function Testimonials({
               <div className="border border-ink/10 rounded-xl p-7 h-full">
                 <div className="flex items-center gap-3 mb-5">
                   <img
-                    src={unsplash(r.image, 100, 100)}
+                    src={r.image}
                     alt={r.name}
                     className="w-11 h-11 object-cover rounded-full"
                   />

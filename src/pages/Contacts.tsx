@@ -15,7 +15,7 @@ export default function Contacts() {
             <div className="aspect-[4/3] overflow-hidden rounded-[1.5rem] border border-ink/10">
               <iframe
                 title="Карта — зона обслуговування"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=30.20%2C50.28%2C30.36%2C50.35&layer=mapnik&marker=50.3167%2C30.2833"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=30.44%2C50.40%2C30.60%2C50.48&layer=mapnik&marker=50.4501%2C30.5234"
                 className="w-full h-full grayscale-[40%] contrast-[1.05]"
                 loading="lazy"
               />

@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import Reveal from "./Reveal";
 import { useBooking } from "../context/BookingContext";
-import { unsplash, IMG } from "../lib/images";
+import { IMG } from "../lib/images";
 
 export default function Cta() {
   const { open } = useBooking();
@@ -36,7 +36,7 @@ export default function Cta() {
 
         <div className="hidden lg:block h-full min-h-[420px]">
           <img
-            src={unsplash(IMG.clientPortrait, 800, 900)}
+            src={IMG.cta}
             alt=""
             className="w-full h-full object-cover"
           />

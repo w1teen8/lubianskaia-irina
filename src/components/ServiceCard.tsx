@@ -1,18 +1,25 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { unsplash } from "../lib/images";
 import type { Service } from "../lib/data";
+import { SERVICES } from "../lib/data";
 
 export default function ServiceCard({ service }: { service: Service }) {
+  const index = SERVICES.findIndex((s) => s.slug === service.slug);
+
   return (
     <motion.div whileHover="hover" className="group">
       <Link to={`/services/${service.slug}`} className="block">
+        <div className="flex items-center gap-2 mb-4">
+          <span className="font-serif text-sm text-gold">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+        </div>
         <div className="relative aspect-[4/5] overflow-hidden mb-5 rounded-xl">
           <motion.img
             variants={{ hover: { scale: 1.06 } }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            src={unsplash(service.image, 600, 750)}
+            src={service.image}
             alt={service.title}
             className="w-full h-full object-cover"
           />

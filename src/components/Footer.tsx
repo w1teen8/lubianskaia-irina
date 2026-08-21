@@ -12,7 +12,7 @@ export default function Footer() {
             Ірина Люб&apos;янська
           </span>
           <span className="block text-[11px] uppercase tracking-[0.2em] text-taupe mt-1">
-            Студія краси
+            Персональний стиліст
           </span>
         </div>
 

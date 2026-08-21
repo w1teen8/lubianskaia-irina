@@ -1,33 +1,20 @@
-import { Shield, Award, Sparkles, Heart, Leaf, ShieldCheck } from "lucide-react";
 import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import Cta from "../components/Cta";
-import { unsplash, IMG } from "../lib/images";
-import { ADVANTAGES } from "../lib/data";
-
-const ICONS: Record<
-  string,
-  React.ComponentType<{ size?: number; strokeWidth?: number; className?: string }>
-> = {
-  certificate: Award,
-  device: Shield,
-  sparkle: Sparkles,
-  heart: Heart,
-  leaf: Leaf,
-  shield: ShieldCheck,
-};
+import { IMG } from "../lib/images";
+import { BENEFITS } from "../lib/data";
 
 export default function About() {
   return (
     <>
-      <PageHero eyebrow="Про мене" title="Краса — це турбота, втілена в деталях" />
+      <PageHero eyebrow="Про мене" title="Стиль — це ваша суперсила" />
 
       <section className="bg-ivory pb-24 sm:pb-32">
         <div className="max-w-[1400px] mx-auto px-6 sm:px-10 grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
           <Reveal>
-            <div className="aspect-[4/5] overflow-hidden">
+            <div className="aspect-[4/5] overflow-hidden rounded-[1.5rem]">
               <img
-                src={unsplash(IMG.aboutPortrait, 900, 1125)}
+                src={IMG.about}
                 alt="Ірина Люб'янська"
                 className="w-full h-full object-cover"
               />
@@ -37,19 +24,17 @@ export default function About() {
           <div>
             <Reveal>
               <p className="text-taupe font-light leading-relaxed text-base sm:text-lg mb-7">
-                Мене звати Ірина, і вже кілька років я допомагаю жінкам у
-                Боярці, Тарасівці та Вишневому відчувати впевненість у
-                власній шкірі. Кожна процедура для мене — це не просто
-                послуга, а маленький ритуал турботи, де важлива кожна
-                деталь.
+                Я — Ірина Люб&apos;янська, персональний стиліст та майстер
+                краси. Допомагаю жінкам розкривати свою унікальність через
+                стиль, макіяж та доглянутість. Моя мета — щоб ви почувались
+                впевнено та гармонійно кожного дня.
               </p>
             </Reveal>
             <Reveal delay={0.1}>
               <blockquote className="border-l-2 border-ink pl-6 py-1 mb-8">
                 <p className="font-serif text-xl sm:text-2xl text-ink italic leading-snug">
-                  &laquo;Моя мета — щоб ви виходили з кабінету не лише з
-                  гладенькою шкірою, а й із відчуттям справжнього
-                  спокою&raquo;
+                  &laquo;Стиль — це не про моду, а про те, як ви себе
+                  почуваєте у власній шкірі&raquo;
                 </p>
               </blockquote>
             </Reveal>
@@ -73,21 +58,20 @@ export default function About() {
             </h2>
           </Reveal>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-14">
-            {ADVANTAGES.map((adv, i) => {
-              const Icon = ICONS[adv.icon];
-              return (
-                <Reveal key={adv.title} delay={(i % 3) * 0.1}>
-                  <Icon size={26} strokeWidth={1.25} className="text-gold" />
-                  <h3 className="font-serif text-xl text-ink mt-5 mb-2">
-                    {adv.title}
-                  </h3>
-                  <p className="text-taupe text-sm font-light leading-relaxed max-w-xs">
-                    {adv.description}
-                  </p>
-                </Reveal>
-              );
-            })}
+          <div className="grid sm:grid-cols-3 gap-x-10 gap-y-14">
+            {BENEFITS.map((b, i) => (
+              <Reveal key={b.title} delay={(i % 3) * 0.1}>
+                <span className="font-serif text-2xl text-gold/70">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="font-serif text-xl text-ink mt-4 mb-2">
+                  {b.title}
+                </h3>
+                <p className="text-taupe text-sm font-light leading-relaxed max-w-xs">
+                  {b.description}
+                </p>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>

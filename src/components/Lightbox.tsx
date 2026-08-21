@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { AnimatePresence, motion, type PanInfo } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
-import { unsplash } from "../lib/images";
 
 type LightboxImage = { image: string; alt: string };
 
@@ -89,7 +88,7 @@ export default function Lightbox({
             className="relative w-full max-w-3xl aspect-[4/5]"
           >
             <img
-              src={unsplash(images[activeIndex].image, 1000, 1250)}
+              src={images[activeIndex].image}
               alt={images[activeIndex].alt}
               className="w-full h-full object-contain select-none"
               draggable={false}

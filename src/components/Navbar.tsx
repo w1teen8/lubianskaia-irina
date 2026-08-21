@@ -25,6 +25,11 @@ export default function Navbar() {
     setMenuOpen(false);
   }, [location.pathname]);
 
+  // The home hero is dark, so the navbar starts light-on-dark there and
+  // switches to the standard light navbar once scrolled or on any
+  // (light-background) inner page.
+  const onDarkHero = location.pathname === "/" && !scrolled;
+
   return (
     <>
       <header
@@ -37,11 +42,21 @@ export default function Navbar() {
       >
         <nav className="max-w-[1400px] mx-auto px-6 sm:px-10 flex items-center justify-between">
           <Link to="/" className="leading-tight">
-            <span className="block font-serif text-lg sm:text-xl tracking-wide text-ink">
+            <span
+              className={cn(
+                "block font-serif text-lg sm:text-xl tracking-wide transition-colors duration-500",
+                onDarkHero ? "text-ivory" : "text-ink"
+              )}
+            >
               Ірина Люб&apos;янська
             </span>
-            <span className="block text-[10px] uppercase tracking-[0.2em] text-taupe mt-0.5">
-              Студія краси
+            <span
+              className={cn(
+                "block text-[10px] uppercase tracking-[0.2em] mt-0.5 transition-colors duration-500",
+                onDarkHero ? "text-ivory/50" : "text-taupe"
+              )}
+            >
+              Персональний стиліст
             </span>
           </Link>
 
@@ -53,7 +68,13 @@ export default function Navbar() {
                   className={({ isActive }) =>
                     cn(
                       "text-[14px] transition-colors duration-300",
-                      isActive ? "text-ink" : "text-taupe hover:text-ink"
+                      onDarkHero
+                        ? isActive
+                          ? "text-ivory"
+                          : "text-ivory/60 hover:text-ivory"
+                        : isActive
+                          ? "text-ink"
+                          : "text-taupe hover:text-ink"
                     )
                   }
                 >
@@ -66,7 +87,12 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => open()}
-            className="hidden lg:inline-flex items-center bg-ink text-ivory rounded-full px-7 py-3 text-[12px] uppercase tracking-[0.2em] hover:bg-gold transition-colors duration-300"
+            className={cn(
+              "hidden lg:inline-flex items-center rounded-full px-7 py-3 text-[12px] uppercase tracking-[0.2em] transition-colors duration-300",
+              onDarkHero
+                ? "border border-ivory/40 text-ivory hover:bg-ivory hover:text-ink"
+                : "bg-ink text-ivory hover:bg-gold"
+            )}
           >
             Записатися
           </button>
@@ -74,7 +100,10 @@ export default function Navbar() {
           <button
             type="button"
             aria-label="Меню"
-            className="lg:hidden text-ink"
+            className={cn(
+              "lg:hidden transition-colors duration-300",
+              onDarkHero ? "text-ivory" : "text-ink"
+            )}
             onClick={() => setMenuOpen((o) => !o)}
           >
             {menuOpen ? <X size={24} /> : <Menu size={24} />}

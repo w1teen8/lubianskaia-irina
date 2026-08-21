@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Source photo drop folder (optimized copies live in src/assets/gallery)
+/Gallery/
