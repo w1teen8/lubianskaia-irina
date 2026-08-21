@@ -1,20 +1,20 @@
-"use client";
-
 import { useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { NAV_LINKS, CONTACT } from "@/lib/data";
-import { cn } from "@/lib/utils";
-import MagneticButton from "./MagneticButton";
+import { NAV_LINKS } from "../lib/data";
+import { useBooking } from "../context/BookingContext";
+import { cn } from "../lib/utils";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [active, setActive] = useState<string>("");
+  const { open } = useBooking();
+  const location = useLocation();
 
   useEffect(() => {
     function onScroll() {
-      setScrolled(window.scrollY > 40);
+      setScrolled(window.scrollY > 30);
     }
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -22,80 +22,57 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const sections = NAV_LINKS.map((l) => document.querySelector(l.href)).filter(
-      (el): el is Element => !!el
-    );
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(`#${entry.target.id}`);
-          }
-        });
-      },
-      { rootMargin: "-40% 0px -50% 0px", threshold: 0 }
-    );
-
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
-  }, []);
+    setMenuOpen(false);
+  }, [location.pathname]);
 
   return (
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b",
           scrolled
-            ? "bg-bg-primary/80 backdrop-blur-md border-b border-border py-3"
-            : "bg-transparent py-6"
+            ? "bg-paper/90 backdrop-blur-md border-black/5 py-3"
+            : "bg-transparent border-transparent py-6"
         )}
       >
-        <nav className="max-w-7xl mx-auto px-6 sm:px-8 flex items-center justify-between">
-          <a
-            href="#hero"
-            className="font-heading text-xl sm:text-2xl tracking-wide text-text"
+        <nav className="max-w-[1400px] mx-auto px-6 sm:px-10 flex items-center justify-between">
+          <Link
+            to="/"
+            className="font-serif text-lg sm:text-xl tracking-wide text-ink"
           >
             Ірина Люб&apos;янська
-          </a>
+          </Link>
 
-          <ul className="hidden lg:flex items-center gap-9">
+          <ul className="hidden lg:flex items-center gap-10">
             {NAV_LINKS.map((link) => (
-              <li key={link.href} className="relative">
-                <a
-                  href={link.href}
-                  className={cn(
-                    "text-[13px] uppercase tracking-[0.15em] font-medium transition-colors duration-300 pb-1",
-                    active === link.href
-                      ? "text-text"
-                      : "text-text-secondary hover:text-text"
-                  )}
+              <li key={link.to}>
+                <NavLink
+                  to={link.to}
+                  className={({ isActive }) =>
+                    cn(
+                      "text-[13px] uppercase tracking-[0.15em] transition-colors duration-300",
+                      isActive ? "text-ink" : "text-taupe hover:text-ink"
+                    )
+                  }
                 >
                   {link.label}
-                </a>
-                {active === link.href && (
-                  <motion.div
-                    layoutId="nav-active"
-                    className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-accent rounded-full"
-                  />
-                )}
+                </NavLink>
               </li>
             ))}
           </ul>
 
-          <div className="hidden lg:block">
-            <MagneticButton
-              href="#booking"
-              className="bg-text text-bg-primary rounded-full px-6 py-2.5 text-[13px] uppercase tracking-[0.15em] font-medium hover:bg-accent"
-            >
-              Записатися
-            </MagneticButton>
-          </div>
+          <button
+            type="button"
+            onClick={() => open()}
+            className="hidden lg:inline-flex items-center bg-ink text-ivory rounded-none px-7 py-3 text-[12px] uppercase tracking-[0.2em] hover:bg-taupe transition-colors duration-300"
+          >
+            Записатися
+          </button>
 
           <button
             type="button"
             aria-label="Меню"
-            className="lg:hidden text-text"
+            className="lg:hidden text-ink"
             onClick={() => setMenuOpen((o) => !o)}
           >
             {menuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -109,31 +86,38 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-bg-primary/98 backdrop-blur-lg lg:hidden"
+            transition={{ duration: 0.4 }}
+            className="fixed inset-0 z-40 bg-ivory lg:hidden"
           >
-            <div className="flex flex-col items-center justify-center h-full gap-8">
+            <div className="flex flex-col items-center justify-center h-full gap-9">
               {NAV_LINKS.map((link, i) => (
-                <motion.a
-                  key={link.href}
-                  href={link.href}
+                <motion.div
+                  key={link.to}
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 + i * 0.06 }}
-                  onClick={() => setMenuOpen(false)}
-                  className="font-heading text-3xl text-text hover:text-accent transition-colors"
+                  transition={{ delay: 0.1 + i * 0.07, duration: 0.5 }}
                 >
-                  {link.label}
-                </motion.a>
+                  <NavLink
+                    to={link.to}
+                    className="font-serif text-3xl text-ink hover:text-taupe transition-colors"
+                  >
+                    {link.label}
+                  </NavLink>
+                </motion.div>
               ))}
-              <motion.a
-                href={CONTACT.phoneHref}
+              <motion.button
+                type="button"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 + NAV_LINKS.length * 0.06 }}
-                className="mt-4 text-text-secondary tracking-wide"
+                transition={{ delay: 0.1 + NAV_LINKS.length * 0.07, duration: 0.5 }}
+                onClick={() => {
+                  setMenuOpen(false);
+                  open();
+                }}
+                className="mt-4 bg-ink text-ivory px-9 py-3.5 text-[12px] uppercase tracking-[0.2em]"
               >
-                {CONTACT.phone}
-              </motion.a>
+                Записатися
+              </motion.button>
             </div>
           </motion.div>
         )}

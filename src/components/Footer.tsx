@@ -1,27 +1,86 @@
-import { NAV_LINKS, CONTACT } from "@/lib/data";
+import { Link } from "react-router-dom";
+import { Send, Music2 } from "lucide-react";
+import { PiInstagramLogo } from "react-icons/pi";
+import { NAV_LINKS, CONTACT } from "../lib/data";
 
 export default function Footer() {
   return (
-    <footer className="bg-bg-primary border-t border-border py-12 sm:py-14">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-        <p className="font-heading text-xl text-text">Ірина Люб&apos;янська</p>
-
-        <ul className="flex flex-wrap items-center justify-center gap-x-7 gap-y-2">
-          {NAV_LINKS.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="text-xs uppercase tracking-[0.15em] text-text-secondary hover:text-accent transition-colors"
-              >
-                {link.label}
+    <footer className="bg-ink text-ivory">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 py-16 sm:py-20 grid sm:grid-cols-3 gap-12 sm:gap-8">
+        <div>
+          <p className="text-[11px] uppercase tracking-[0.25em] text-taupe mb-5">
+            Контакти
+          </p>
+          <ul className="space-y-3 text-sm font-light">
+            <li>
+              <a href={CONTACT.phoneHref} className="hover:text-beige transition-colors">
+                {CONTACT.phone}
               </a>
             </li>
-          ))}
-        </ul>
+            <li>
+              <a
+                href={CONTACT.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-beige transition-colors"
+              >
+                @{CONTACT.instagramHandle}
+              </a>
+            </li>
+            <li className="text-ivory/60">{CONTACT.locations.join(" · ")}</li>
+          </ul>
+        </div>
 
-        <p className="text-xs text-text-secondary font-light">
-          © {new Date().getFullYear()} {CONTACT.phone}
-        </p>
+        <div>
+          <p className="text-[11px] uppercase tracking-[0.25em] text-taupe mb-5">
+            Навігація
+          </p>
+          <ul className="space-y-3 text-sm font-light">
+            {NAV_LINKS.map((link) => (
+              <li key={link.to}>
+                <Link to={link.to} className="hover:text-beige transition-colors">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <p className="text-[11px] uppercase tracking-[0.25em] text-taupe mb-5">
+            Соціальні мережі
+          </p>
+          <div className="flex items-center gap-4">
+            <a
+              href={CONTACT.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="w-10 h-10 border border-ivory/20 flex items-center justify-center hover:border-beige hover:text-beige transition-colors"
+            >
+              <PiInstagramLogo size={16} />
+            </a>
+            <span
+              aria-label="Telegram"
+              className="w-10 h-10 border border-ivory/20 flex items-center justify-center text-ivory/40"
+            >
+              <Send size={16} />
+            </span>
+            <span
+              aria-label="TikTok"
+              className="w-10 h-10 border border-ivory/20 flex items-center justify-center text-ivory/40"
+            >
+              <Music2 size={16} />
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div className="border-t border-ivory/10">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-ivory/50 font-light">
+          <p>© {new Date().getFullYear()} Ірина Люб&apos;янська. Всі права захищені.</p>
+          <p>Політика конфіденційності</p>
+        </div>
       </div>
     </footer>
   );
