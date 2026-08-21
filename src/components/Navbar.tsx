@@ -44,7 +44,7 @@ export default function Navbar() {
           <Link to="/" className="leading-tight">
             <span
               className={cn(
-                "block font-serif text-lg sm:text-xl tracking-wide transition-colors duration-500",
+                "block font-serif text-lg sm:text-xl uppercase tracking-[0.08em] transition-colors duration-500",
                 onDarkHero ? "text-ivory" : "text-ink"
               )}
             >
@@ -67,7 +67,7 @@ export default function Navbar() {
                   to={link.to}
                   className={({ isActive }) =>
                     cn(
-                      "text-[14px] transition-colors duration-300",
+                      "text-[13px] uppercase tracking-[0.12em] transition-colors duration-300",
                       onDarkHero
                         ? isActive
                           ? "text-ivory"

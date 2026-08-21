@@ -26,20 +26,28 @@ export default function Hero() {
 
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 xl:px-20 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center py-16 sm:py-20">
         <div>
-          <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl leading-[1.05] text-ivory mb-8">
+          <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl leading-[1.05] uppercase text-ivory mb-8">
             <motion.span
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="block"
             >
-              Стиль — це ваша
+              Стиль —
             </motion.span>
             <motion.span
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="block italic font-normal text-gold"
+              transition={{ duration: 0.9, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
+              className="block"
+            >
+              це ваша
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.34, ease: [0.22, 1, 0.36, 1] }}
+              className="block italic font-normal normal-case text-gold"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               суперсила

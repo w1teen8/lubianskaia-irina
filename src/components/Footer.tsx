@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="bg-ink text-ivory">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 py-16 sm:py-20 grid sm:grid-cols-2 lg:grid-cols-4 gap-12 sm:gap-8">
         <div>
-          <span className="block font-serif text-xl text-ivory">
+          <span className="block font-serif text-xl uppercase tracking-[0.08em] text-ivory">
             Ірина Люб&apos;янська
           </span>
           <span className="block text-[11px] uppercase tracking-[0.2em] text-taupe mt-1">
